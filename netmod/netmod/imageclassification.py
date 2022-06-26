@@ -8,12 +8,12 @@ import tensorflow as tf
 from sklearn.model_selection import train_test_split
 from tensorflow.keras import layers
 
-#read file
-# def readDirectory(dir):
-#     L = 0
-#     for dirpath, dirnames, filenames in os.walk(dir):
-#         print(f"There are {len(dirnames)} directories and {len(filenames)} images in '{dirpath}'")
-#         L = L + len(filenames)
+# read file
+def readDirectory(dir):
+    L = 0
+    for dirpath, dirnames, filenames in os.walk(dir):
+        print(f"There are {len(dirnames)} directories and {len(filenames)} images in '{dirpath}'")
+        L = L + len(filenames)
 
 #ImageProcessing
 # Grayscale
