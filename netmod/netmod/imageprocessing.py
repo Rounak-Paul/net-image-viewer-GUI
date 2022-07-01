@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 import os
 
+#only needed for color picker pre made GUI
 from vcolorpicker import getColor
 
 #video to image frame by frame
