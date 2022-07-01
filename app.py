@@ -300,7 +300,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Net Image Viewer"))
-        self.label_6.setText(_translate("MainWindow", "<html><head/><body><p>Designed &amp; </p><p>Developed by:</p><p><span style=\" font-weight:600;\">Rounak Paul</span></p><p><a href=\"www.net-work.in\"><span style=\" text-decoration: underline; color:#0000ff;\">www.net-work.in</span></a></p></body></html>"))
+        self.label_6.setText(_translate("MainWindow", "<html><head/><body><p>Designed &amp; </p><p>Developed by:</p><p><span style=\" font-weight:600;\">MAKAUT AI LAB</span></p><p><a href=\"www.net-work.in\"><span style=\" text-decoration: underline; color:#0000ff;\">www.net-work.in</span></a></p></body></html>"))
         self.label_2.setText(_translate("MainWindow", "RED"))
         self.label_3.setText(_translate("MainWindow", "GREEN"))
         self.label_4.setText(_translate("MainWindow", "BLUE"))
