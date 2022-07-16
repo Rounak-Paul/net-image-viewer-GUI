@@ -2,6 +2,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QFileDialog
 from PyQt5.QtGui import QImage
 import cv2, imutils
+from cv2 import waitKey
 import numpy as np
 
 #Rounak's Python Module
@@ -207,7 +208,7 @@ class Ui_MainWindow(object):
             frame = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
             image = QImage(frame, frame.shape[1],frame.shape[0],frame.strides[0],QImage.Format_RGB888)
             self.label.setPixmap(QtGui.QPixmap.fromImage(image))
-        except: return
+        except: print('error displaying photo')
 
     #change image to modified image for multiple modifications
     def apply(self):
@@ -269,13 +270,16 @@ class Ui_MainWindow(object):
     def updateRGB(self):
         # gamma = self.gamma_value_now
         rgb = np.array([self.blue_value_now,self.green_value_now,self.red_value_now])
-        print(rgb)
+        # print(rgb)
         try:
             # img = ip.powerlaw(self.image,self.gamma_value_now)
             img = ip.colorFilter(self.image,rgb)
+            
             self.setPhoto(img)
+
+            
         except:
-            return
+            print('error:unable to update RGB sliders')
 
 # update on gamma change
     def updateGamma(self):
@@ -284,6 +288,7 @@ class Ui_MainWindow(object):
         try:
             img = ip.powerlaw(self.image,gamma)
             self.setPhoto(img)
+            print(img)
         except:
             return
 

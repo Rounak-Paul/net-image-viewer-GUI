@@ -1,3 +1,4 @@
+from unittest import result
 import cv2
 import numpy as np
 import os
@@ -38,7 +39,8 @@ def colorFilterUI(img):
 
     #color filter without UI
 def colorFilter(img,rgb):
-    low = np.zeros(3)
+    # low = np.zeros(3)
+    low = rgb - 200
     high = rgb
 
     print(low,high)
@@ -86,6 +88,30 @@ def layerExtract(img,n):
         return blue_channel
     else: 
         return
+
+#RGB layer extract-slider
+
+def layerExtractSlider(img,rgb):
+    blue, green, red = cv2.split(img)
+
+    r = 1 - rgb[2]/255
+    g = 1 - rgb[1]/255
+    b = 1 - rgb[0]/255
+
+    blue = blue/255 - b
+    green = green/255 - g
+    red = red/255 - r
+
+    blue = np.round(blue)
+    green = np.round(green)
+    red = np.round(red)
+
+    img = cv2.merge((blue, green, red))
+    
+    # img = cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
+    # img = cv2.normalize(img, None, alpha = 0, beta = 255, norm_type = cv2.NORM_MINMAX, dtype = cv2.CV_64F)
+    
+    return img
 
 #histEqu
 def histogramEqualization(img):
